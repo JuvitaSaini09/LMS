@@ -61,8 +61,8 @@ export default function DashboardPage() {
                     <div className=" grid grid-cols-2 gap-4">
                         {
                             quickActions.map((action, idx) => (
-                                <Link key={idx} href={action.link} className="">
-                                    <div className=" border-[0.5px] border-woodsmoke/25 hover:bg-pumpkin hover:text-white rounded-md px-4 py-2 h-24 flex flex-col items-center justify-center gap-2">
+                                <Link key={idx} href={action.link} className="bg-athen-gray">
+                                    <div className="border-[0.5px] border-woodsmoke/25 hover:bg-pumpkin hover:text-white rounded-md px-4 py-2 h-24 flex flex-col items-center justify-center gap-2 transition-[color,background-color,border-color,text-decoration-color,fill,stroke] ease-in-out duration-150">
                                     
                                     {action.icon}
                                     <span className="text-sm">{action.title}</span>
