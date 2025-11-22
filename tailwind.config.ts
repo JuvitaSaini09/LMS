@@ -17,6 +17,7 @@ const config: Config = {
                 "silver-sand": "var(--color-silver-sand)",
                 "outer-space": "var(--color-outer-space)",
                 rust: "var(--color-rust)",
+                "athen-gray": "var(--color-athen-gray)",
             }
         }
     }

@@ -15,6 +15,7 @@ body {
   --color-romantic: #ffd8c0; /* romantic */
   --color-silver-sand: #c5c6c7; /* silver-sand */
   --color-outer-space: #313334; /* outer-space */
+  --color-athen-gray:#f6f7f9; /* athen-gray */
   --color-rust:#626284;
 
   /* RGB versions for transparency support */
@@ -26,6 +27,7 @@ body {
   --color-romantic-rgb: 255, 216, 192;
   --color-silver-sand-rgb: 197, 198, 199;
   --color-outer-space-rgb: 49, 51, 52;
+  --color-athen-gray-rgb: 246, 247, 249;
   --color-rust-rgb: 98, 98, 132;
 }
 
@@ -40,6 +42,7 @@ body {
   --color-silver-sand: #c5c6c7;
   --color-outer-space: #313334;
   --color-rust: #626284;
+  --color-athen-gray: #f6f7f9;
 }
 
 

@@ -2,6 +2,7 @@
 
 import { LayoutDashboard, FileText, ChartColumnIncreasing, BookOpen, IndianRupee, LogOut, X } from "lucide-react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 
 interface NavItem {
@@ -43,6 +44,7 @@ interface SidebarProps {
 }
 
 export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
+    const pathname = usePathname();
 
     const logoIconSvg = (
         <svg
@@ -75,11 +77,11 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
             )}
             <aside className={`
                 fixed md:static inset-y-0 left-0 z-50
-                h-screen w-64 flex flex-col justify-between border-r border-silver-sand bg-white
+                h-screen w-64 flex flex-col justify-between bg-white
                 transform transition-transform duration-300 ease-in-out
                 ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
             `}>
-                <div className="flex items-center gap-3 p-6 border-b border-silver-sand">
+                <div className="flex items-center gap-3 p-6">
                     <div className="bg-pumpkin h-10 w-10 flex items-center justify-center rounded-xl">
                         <span>{logoIconSvg}</span>
                     </div>
@@ -97,24 +99,27 @@ export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
                 </div>
                 <nav className="flex-1 p-4">
                     <ul className="space-y-1">
-                        {navItems.map((item) => (
-                            <li key={item.href} className="px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 ease-in-out hover:bg-gray-200">
-                                <Link 
-                                    href={item.href} 
-                                    className="flex items-center gap-3"
-                                    onClick={() => onClose?.()}
-                                >
-                                    <span className={`icon icon-${item.icon}`}>
-                                        {item.icon}
-                                    </span>
-                                    <span>{item.name}</span>
-                                </Link>
-                            </li>
-                        ))}
+                        {navItems.map((item) => {
+                            const isActive = pathname === item.href;
+                            return (
+                                <li key={item.href} className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 ease-in-out hover:bg-gray-200 ${isActive ? 'hover:bg-woodsmoke/90 bg-woodsmoke text-white' : ''}`}>
+                                    <Link 
+                                        href={item.href} 
+                                        className="flex items-center gap-3"
+                                        onClick={() => onClose?.()}
+                                    >
+                                        <span className={`icon icon-${item.icon}`}>
+                                            {item.icon}
+                                        </span>
+                                        <span>{item.name}</span>
+                                    </Link>
+                                </li>
+                            )
+                        })}
                     </ul>
                 </nav>
 
-                <div className="border-t border-silver-sand p-4 text-[14px] font-medium">
+                <div className=" p-4 text-[14px] font-medium">
                     <button className="h-10 w-full px-4 py-2 flex items-center gap-4 cursor-pointer hover:bg-pumpkin rounded-lg transition-colors duration-150 ease-in-out hover:text-white">
                         <span ><LogOut size={16} strokeWidth={2} /></span>
                         <span>Logout</span>
