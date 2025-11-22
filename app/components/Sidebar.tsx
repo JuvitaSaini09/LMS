@@ -1,4 +1,6 @@
-import { LayoutDashboard, FileText, ChartColumnIncreasing, BookOpen, IndianRupee, LogOut } from "lucide-react";
+'use client';
+
+import { LayoutDashboard, FileText, ChartColumnIncreasing, BookOpen, IndianRupee, LogOut, X } from "lucide-react";
 import Link from "next/link";
 
 
@@ -34,7 +36,13 @@ const navItems: NavItem[] = [
         icon: <IndianRupee />,
     },
 ];
-export default function Sidebar() {
+
+interface SidebarProps {
+    isOpen?: boolean;
+    onClose?: () => void;
+}
+
+export default function Sidebar({ isOpen = false, onClose }: SidebarProps) {
 
     const logoIconSvg = (
         <svg
@@ -57,40 +65,62 @@ export default function Sidebar() {
 
 
     return (
-        <aside className="h-screen flex flex-col justify-between border-r border-silver-sand">
-            <div className="flex items-center gap-3 p-6 border-b border-silver-sand">
-                <div className="bg-pumpkin h-10 w-10 flex items-center justify-center rounded-xl">
-                    <span>{logoIconSvg}</span>
+        <>
+            {/* Mobile Overlay */}
+            {isOpen && (
+                <div 
+                    className="fixed inset-0 bg-black/50 z-40 md:hidden"
+                    onClick={onClose}
+                />
+            )}
+            <aside className={`
+                fixed md:static inset-y-0 left-0 z-50
+                h-screen w-64 flex flex-col justify-between border-r border-silver-sand bg-white
+                transform transition-transform duration-300 ease-in-out
+                ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
+            `}>
+                <div className="flex items-center gap-3 p-6 border-b border-silver-sand">
+                    <div className="bg-pumpkin h-10 w-10 flex items-center justify-center rounded-xl">
+                        <span>{logoIconSvg}</span>
+                    </div>
+                    <div className="flex-1">
+                        <h1 className="font-bold text-lg">EduFlow MLS</h1>
+                        <p className="text-rust text-[13px] capitalize">Student Portal</p>
+                    </div>
+                    {/* Close button for mobile */}
+                    <button 
+                        onClick={onClose}
+                        className="md:hidden p-1 hover:bg-gray-100 rounded"
+                    >
+                        <X size={20} />
+                    </button>
                 </div>
-                <div>
-                    <h1 className="font-bold text-lg">EduFlow MLS</h1>
-                    <p className="text-rust text-[13px] capitalize">Student Portal</p>
-                </div>
-            </div>
-            <nav className="flex-1 p-4">
-                <ul className="space-y-1">
-                    {
-
-                        navItems.map((item) => (
+                <nav className="flex-1 p-4">
+                    <ul className="space-y-1">
+                        {navItems.map((item) => (
                             <li key={item.href} className="px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 ease-in-out hover:bg-gray-200">
-                                <Link href={item.href} className="flex items-center gap-3 ">
+                                <Link 
+                                    href={item.href} 
+                                    className="flex items-center gap-3"
+                                    onClick={() => onClose?.()}
+                                >
                                     <span className={`icon icon-${item.icon}`}>
                                         {item.icon}
                                     </span>
                                     <span>{item.name}</span>
                                 </Link>
                             </li>
-                        ))
-                    }
-                </ul>
-            </nav>
+                        ))}
+                    </ul>
+                </nav>
 
-            <div className="border-t border-silver-sand p-4 text-[14px] font-medium">
-                <button className="h-10 w-full px-4 py-2 flex items-center gap-4 cursor-pointer hover:bg-pumpkin rounded-lg transition-colors duration-150 ease-in-out hover:text-white">
-                    <span ><LogOut size={16} strokeWidth={2} /></span>
-                    <span>Logout</span>
-                </button>
-            </div>
-        </aside>
+                <div className="border-t border-silver-sand p-4 text-[14px] font-medium">
+                    <button className="h-10 w-full px-4 py-2 flex items-center gap-4 cursor-pointer hover:bg-pumpkin rounded-lg transition-colors duration-150 ease-in-out hover:text-white">
+                        <span ><LogOut size={16} strokeWidth={2} /></span>
+                        <span>Logout</span>
+                    </button>
+                </div>
+            </aside>
+        </>
     )
 }
