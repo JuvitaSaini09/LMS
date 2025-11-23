@@ -1,6 +1,6 @@
 'use client';
 
-import { LayoutDashboard, BarChart3, Users, IndianRupee, LogOut, X } from "lucide-react";
+import { BarChart3, Users, LogOut, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -12,24 +12,14 @@ interface NavItem {
 
 const navItems: NavItem[] = [
     {
-        name: 'Dashboard',
-        href: '/admin/dashboard',
-        icon: <LayoutDashboard />,
-    },
-    {
         name: 'Analytics',
         href: '/admin/analytics',
         icon: <BarChart3 />,
     },
     {
-        name: 'Students',
-        href: '/admin/students',
+        name: 'Fees Management',
+        href: '/admin/fees-management',
         icon: <Users />,
-    },
-    {
-        name: 'Fees',
-        href: '/admin/fees',
-        icon: <IndianRupee />,
     },
 ];
 
