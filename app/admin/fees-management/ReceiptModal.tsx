@@ -74,7 +74,7 @@ fees@eduflow.com`;
                                 <textarea
                                     readOnly
                                     value={emailTemplate}
-                                    className="w-full h-64 p-4 border border-woodsmoke/20 rounded-md bg-athen-gray text-sm text-woodsmoke resize-none focus:outline-none focus:ring-2 focus:ring-pumpkin focus:ring-offset-2"
+                                    className="w-full h-64 p-4 border border-woodsmoke/20 rounded-md bg-athen-gray text-sm text-white resize-none focus:outline-none focus:ring-2 focus:ring-pumpkin focus:ring-offset-2"
                                 />
                             </div>
                         </div>
