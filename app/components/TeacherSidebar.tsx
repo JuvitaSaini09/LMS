@@ -65,7 +65,7 @@ export default function TeacherSidebar({ isOpen = false, onClose }: TeacherSideb
                 />
             )}
             <aside className={`
-                fixed md:static inset-y-0 left-0 z-50
+                fixed md:fixed inset-y-0 left-0 z-50
                 h-screen w-64 flex flex-col justify-between bg-white
                 transform transition-transform duration-300 ease-in-out
                 ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
@@ -109,7 +109,12 @@ export default function TeacherSidebar({ isOpen = false, onClose }: TeacherSideb
                 </nav>
 
                 <div className="p-4 text-[14px] font-medium">
-                    <button className="h-10 w-full px-4 py-2 flex items-center gap-4 cursor-pointer hover:bg-pumpkin rounded-lg transition-colors duration-150 ease-in-out hover:text-white">
+                    <button 
+                        onClick={() => {
+                            window.location.href = '/';
+                        }}
+                        className="h-10 w-full px-4 py-2 flex items-center gap-4 cursor-pointer hover:bg-pumpkin rounded-lg transition-colors duration-150 ease-in-out hover:text-white"
+                    >
                         <span><LogOut size={16} strokeWidth={2} /></span>
                         <span>Logout</span>
                     </button>

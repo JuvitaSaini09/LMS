@@ -53,7 +53,7 @@ export default function StudentLayout({
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
             {/* Main Content */}
-            <main className="flex-1 w-full bg-athen-gray px-8">
+            <main className="flex-1 w-full bg-athen-gray px-8 md:ml-64">
                 {children}
             </main>
         </div>
