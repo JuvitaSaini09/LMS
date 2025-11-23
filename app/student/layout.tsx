@@ -33,19 +33,19 @@ export default function StudentLayout({
     return (
         <div className="flex flex-col md:flex-row min-h-screen">
             {/* Mobile Header with Logo */}
-            <header className="md:hidden flex items-center gap-3 p-4 border-b border-silver-sand bg-white sticky top-0 z-30">
+            <header className="md:hidden flex items-center gap-3 p-4 border-b border-slate-700 bg-slate-800 sticky top-0 z-30">
                 <button
                     onClick={() => setSidebarOpen(true)}
-                    className="p-2 hover:bg-gray-100 rounded-lg"
+                    className="p-2 hover:bg-slate-700 rounded-lg text-slate-300 hover:text-white"
                 >
                     <Menu size={24} />
                 </button>
-                <div className="bg-pumpkin h-10 w-10 flex items-center justify-center rounded-xl">
+                <div className="bg-blue-600 h-10 w-10 flex items-center justify-center rounded-xl">
                     {logoIconSvg}
                 </div>
                 <div>
-                    <h1 className="font-bold text-lg">EduFlow MLS</h1>
-                    <p className="text-rust text-[13px] capitalize">Student Portal</p>
+                    <h1 className="font-bold text-lg text-white">EduFlow MLS</h1>
+                    <p className="text-slate-400 text-[13px] capitalize">Student Portal</p>
                 </div>
             </header>
 
@@ -53,7 +53,7 @@ export default function StudentLayout({
             <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
 
             {/* Main Content */}
-            <main className="flex-1 w-full bg-athen-gray px-8 md:ml-64">
+            <main className="flex-1 w-full bg-slate-900 px-8 md:ml-64">
                 {children}
             </main>
         </div>

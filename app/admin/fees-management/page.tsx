@@ -19,13 +19,13 @@ export default function StudentsPage() {
     const getStatusColor = (status: string) => {
         switch (status) {
             case "PAID":
-                return "text-[#21c45d]";
+                return "text-green-400";
             case "PENDING":
-                return "text-hit-pink";
+                return "text-yellow-400";
             case "OVERDUE":
-                return "text-pumpkin";
+                return "text-red-400";
             default:
-                return "text-rust";
+                return "text-slate-400";
         }
     };
 
@@ -136,7 +136,7 @@ export default function StudentsPage() {
                 <button
                     type="button"
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="flex h-10 items-center justify-between rounded-md border border-woodsmoke/20 bg-white px-3 py-2 text-sm w-[180px] hover:border-woodsmoke/50 transition-colors focus:outline-none focus:ring-2 focus:ring-pumpkin focus:ring-offset-2"
+                    className="flex h-10 items-center justify-between rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm w-[180px] text-white hover:border-blue-500 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                 >
                     <span className="line-clamp-1">{selectedClass}</span>
                     <ChevronDown className={`h-4 w-4 opacity-50 transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`} />
@@ -148,7 +148,7 @@ export default function StudentsPage() {
                             className="fixed inset-0 z-10" 
                             onClick={() => setIsDropdownOpen(false)}
                         />
-                        <div className="absolute top-full mt-1 z-20 w-[180px] rounded-md border border-woodsmoke/20 bg-white shadow-lg">
+                        <div className="absolute top-full mt-1 z-20 w-[180px] rounded-md border border-slate-700 bg-slate-800 shadow-lg">
                             {classes.map((className) => (
                                 <button
                                     key={className}
@@ -156,8 +156,8 @@ export default function StudentsPage() {
                                         setSelectedClass(className);
                                         setIsDropdownOpen(false);
                                     }}
-                                    className={`w-full text-left px-3 py-2 text-sm hover:bg-athen-gray transition-colors ${
-                                        selectedClass === className ? 'bg-pampas text-pumpkin font-medium' : ''
+                                    className={`w-full text-left px-3 py-2 text-sm hover:bg-slate-700 transition-colors text-white ${
+                                        selectedClass === className ? 'bg-blue-600 text-white font-medium' : ''
                                     }`}
                                 >
                                     {className}
@@ -172,7 +172,7 @@ export default function StudentsPage() {
             <div className="space-y-4">
                 {currentStudents.length === 0 ? (
                     <Card>
-                        <div className="p-8 text-center text-rust">
+                        <div className="p-8 text-center text-slate-400">
                             <p>No students found for {selectedClass}</p>
                         </div>
                     </Card>
@@ -182,16 +182,16 @@ export default function StudentsPage() {
                             <div className="p-6">
                                 <div className="flex items-center justify-between">
                                     <div className="flex-1">
-                                        <h3 className="text-lg font-semibold text-woodsmoke">{student.name}</h3>
-                                        <p className="text-sm text-rust mt-1">Roll No: {student.rollNumber}</p>
+                                        <h3 className="text-lg font-semibold text-white">{student.name}</h3>
+                                        <p className="text-sm text-slate-400 mt-1">Roll No: {student.rollNumber}</p>
                                         <div className="flex items-center gap-6 mt-3">
                                             <div>
-                                                <p className="text-xs text-rust">Due Date</p>
-                                                <p className="text-sm font-medium text-woodsmoke">{formatDate(student.dueDate)}</p>
+                                                <p className="text-xs text-slate-400">Due Date</p>
+                                                <p className="text-sm font-medium text-white">{formatDate(student.dueDate)}</p>
                                             </div>
                                             <div>
-                                                <p className="text-xs text-rust">Amount</p>
-                                                <p className="text-sm font-medium text-woodsmoke">{formatCurrency(student.amount)}</p>
+                                                <p className="text-xs text-slate-400">Amount</p>
+                                                <p className="text-sm font-medium text-white">{formatCurrency(student.amount)}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -205,14 +205,14 @@ export default function StudentsPage() {
                                             <div className="flex gap-2">
                                                 <button
                                                     onClick={() => handleReceipt(student)}
-                                                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors bg-pumpkin text-white hover:bg-pumpkin/90 h-9 rounded-md px-4"
+                                                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 h-9 rounded-md px-4"
                                                 >
                                                     <FileText className="w-4 h-4" />
                                                     Receipt
                                                 </button>
                                                 <button
                                                     onClick={() => handleEmail(student)}
-                                                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-woodsmoke/20 bg-white hover:bg-athen-gray text-rust h-9 rounded-md px-4"
+                                                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 h-9 rounded-md px-4"
                                                 >
                                                     <Mail className="w-4 h-4" />
                                                     Email
@@ -221,7 +221,7 @@ export default function StudentsPage() {
                                         ) : (
                                             <button
                                                 onClick={() => handleSendReminder(student)}
-                                                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-woodsmoke/20 bg-white hover:bg-athen-gray text-rust h-9 rounded-md px-4"
+                                                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-slate-700 bg-slate-800 hover:bg-slate-700 text-slate-300 h-9 rounded-md px-4"
                                             >
                                                 <Mail className="w-4 h-4" />
                                                 Send Reminder

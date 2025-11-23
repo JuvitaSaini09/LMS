@@ -43,7 +43,7 @@ export default function AnalyticsPage() {
                     >
                         <div className="px-6 pt-6 pb-2">
                             <div className="space-y-1.5 flex flex-row items-center justify-between">
-                                <h3 className="text-sm font-medium text-rust">{stat.title}</h3>
+                                <h3 className="text-sm font-medium text-slate-400">{stat.title}</h3>
                                 <div className={`w-10 h-10 rounded-lg ${stat.iconColor} flex items-center justify-center ${stat.iconTextColor}`}>
                                     {stat.icon}
                                 </div>
@@ -51,7 +51,7 @@ export default function AnalyticsPage() {
                         </div>
                         <div className="p-6 pt-0">
                             <div className={`text-3xl font-bold ${stat.iconTextColor}`}>{stat.value}</div>
-                            <p className="text-xs text-rust mt-1">{stat.subtitle}</p>
+                            <p className="text-xs text-slate-400 mt-1">{stat.subtitle}</p>
                         </div>
                     </Card>
                 ))}
@@ -68,37 +68,38 @@ export default function AnalyticsPage() {
                     <div className="p-6 pt-0">
                         <ResponsiveContainer width="100%" height={300}>
                             <BarChart data={monthlyCollectionData}>
-                                <CartesianGrid strokeDasharray="3 3" stroke="rgba(17, 20, 24, 0.1)" />
+                                <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                                 <XAxis 
                                     dataKey="month" 
-                                    stroke="#626284"
-                                    tick={{ fill: "#626284" }}
+                                    stroke="#9ca3af"
+                                    tick={{ fill: "#9ca3af" }}
                                 />
                                 <YAxis 
-                                    stroke="#626284"
-                                    tick={{ fill: "#626284" }}
+                                    stroke="#9ca3af"
+                                    tick={{ fill: "#9ca3af" }}
                                 />
                                 <Tooltip 
                                     contentStyle={{ 
-                                        backgroundColor: "white", 
-                                        border: "1px solid rgba(17, 20, 24, 0.2)",
+                                        backgroundColor: "#1f2937", 
+                                        border: "1px solid #374151",
                                         borderRadius: "8px"
                                     }}
+                                    labelStyle={{ color: "#fff" }}
                                 />
                                 <Legend />
                                 <Bar 
                                     dataKey="Collected" 
-                                    fill={COLORS.success} 
+                                    fill="#10b981" 
                                     radius={[8, 8, 0, 0]}
                                 />
                                 <Bar 
                                     dataKey="Pending" 
-                                    fill={COLORS.warning} 
+                                    fill="#f59e0b" 
                                     radius={[8, 8, 0, 0]}
                                 />
                                 <Bar 
                                     dataKey="Overdue" 
-                                    fill={COLORS.destructive} 
+                                    fill="#ef4444" 
                                     radius={[8, 8, 0, 0]}
                                 />
                             </BarChart>
@@ -141,10 +142,11 @@ export default function AnalyticsPage() {
                                 </Pie>
                                 <Tooltip 
                                     contentStyle={{ 
-                                        backgroundColor: "white", 
-                                        border: "1px solid rgba(17, 20, 24, 0.2)",
+                                        backgroundColor: "#1f2937", 
+                                        border: "1px solid #374151",
                                         borderRadius: "8px"
                                     }}
+                                    labelStyle={{ color: "#fff" }}
                                 />
                             </PieChart>
                         </ResponsiveContainer>
@@ -161,37 +163,38 @@ export default function AnalyticsPage() {
                 <div className="p-6 pt-0">
                     <ResponsiveContainer width="100%" height={300}>
                         <LineChart data={collectionTrendData}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(17, 20, 24, 0.1)" />
+                            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                             <XAxis 
                                 dataKey="month" 
-                                stroke="#626284"
-                                tick={{ fill: "#626284" }}
+                                stroke="#9ca3af"
+                                tick={{ fill: "#9ca3af" }}
                             />
                             <YAxis 
-                                stroke="#626284"
-                                tick={{ fill: "#626284" }}
+                                stroke="#9ca3af"
+                                tick={{ fill: "#9ca3af" }}
                             />
                             <Tooltip 
                                 contentStyle={{ 
-                                    backgroundColor: "white", 
-                                    border: "1px solid rgba(17, 20, 24, 0.2)",
+                                    backgroundColor: "#1f2937", 
+                                    border: "1px solid #374151",
                                     borderRadius: "8px"
                                 }}
+                                labelStyle={{ color: "#fff" }}
                             />
                             <Legend />
                             <Line 
                                 type="monotone" 
                                 dataKey="Collected" 
-                                stroke={COLORS.success} 
+                                stroke="#10b981" 
                                 strokeWidth={2}
-                                dot={{ r: 4, fill: COLORS.success }}
+                                dot={{ r: 4, fill: "#10b981" }}
                             />
                             <Line 
                                 type="monotone" 
                                 dataKey="Pending" 
-                                stroke={COLORS.warning} 
+                                stroke="#f59e0b" 
                                 strokeWidth={2}
-                                dot={{ r: 4, fill: COLORS.warning }}
+                                dot={{ r: 4, fill: "#f59e0b" }}
                             />
                         </LineChart>
                     </ResponsiveContainer>

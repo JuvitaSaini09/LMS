@@ -36,32 +36,32 @@ export default function MaterialsPage() {
                                 <div className={`w-12 h-12 rounded-lg ${material.iconColor} flex items-center justify-center ${material.iconTextColor}`}>
                                     {material.icon}
                                 </div>
-                                <div className="inline-flex items-center rounded-full border border-woodsmoke/20 px-2.5 py-0.5 text-xs font-semibold text-rust">
+                                <div className="inline-flex items-center rounded-full border border-slate-700 px-2.5 py-0.5 text-xs font-semibold text-slate-400">
                                     {material.type}
                                 </div>
                             </div>
-                            <h3 className="text-2xl font-semibold leading-none tracking-tight mt-4 group-hover:text-pumpkin transition-colors">
+                            <h3 className="text-2xl font-semibold leading-none tracking-tight mt-4 text-white group-hover:text-blue-400 transition-colors">
                                 {material.title}
                             </h3>
-                            <p className="text-sm text-rust">{material.subject}</p>
+                            <p className="text-sm text-slate-400">{material.subject}</p>
                         </div>
                         <div className="p-6 pt-0">
                             <div className="space-y-4">
-                                <div className="flex items-center justify-between text-sm text-rust">
+                                <div className="flex items-center justify-between text-sm text-slate-400">
                                     <span>Size: {material.size}</span>
                                     <span>{material.downloads} downloads</span>
                                 </div>
                                 <div className="flex gap-2">
                                     <button
                                         onClick={() => handleView(material.id)}
-                                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors bg-pumpkin text-white hover:bg-pumpkin/90 h-9 rounded-md px-3 flex-1"
+                                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 h-9 rounded-md px-3 flex-1"
                                     >
                                         <Eye className="w-4 h-4" />
                                         View
                                     </button>
                                     <button
                                         onClick={() => handleDownload(material.id)}
-                                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-woodsmoke/20 bg-white hover:bg-athen-gray text-rust h-9 rounded-md px-3 flex-1"
+                                        className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-slate-700 bg-slate-700/50 hover:bg-slate-700 text-slate-300 h-9 rounded-md px-3 flex-1"
                                     >
                                         <Download className="w-4 h-4" />
                                         Download

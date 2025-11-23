@@ -14,9 +14,9 @@ export default function TeacherDashboardPage() {
 
     const getStatusColor = (status: string) => {
         if (status === "Completed") {
-            return "bg-[#21c45d]/10 text-[#21c45d]";
+            return "bg-green-500/20 text-green-400";
         }
-        return "bg-hit-pink/10 text-pumpkin";
+        return "bg-blue-500/20 text-blue-400";
     };
 
     return (
@@ -35,14 +35,14 @@ export default function TeacherDashboardPage() {
                     >
                         <div className="px-6 pt-6 pb-2">
                             <div className="space-y-1.5 flex flex-row items-center justify-between">
-                                <h3 className="text-sm font-medium text-rust">{stat.title}</h3>
+                                <h3 className="text-sm font-medium text-slate-400">{stat.title}</h3>
                                 <div className={`w-10 h-10 rounded-lg ${stat.iconColor} flex items-center justify-center ${stat.iconTextColor}`}>
                                     {stat.icon}
                                 </div>
                             </div>
                         </div>
                         <div className="p-6 pt-0">
-                            <div className="text-2xl font-bold">{stat.value}</div>
+                            <div className="text-2xl font-bold text-white">{stat.value}</div>
                         </div>
                     </Card>
                 ))}
@@ -59,15 +59,15 @@ export default function TeacherDashboardPage() {
                         {todaySchedule.map((classItem) => (
                             <div 
                                 key={classItem.id}
-                                className="flex items-center justify-between p-4 rounded-lg border border-woodsmoke/20 hover:border-pumpkin transition-colors"
+                                className="flex items-center justify-between p-4 rounded-lg border border-slate-700 bg-slate-700/50 hover:border-blue-500 hover:bg-slate-700 transition-all"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className={`w-12 h-12 rounded-lg ${classItem.status === "Completed" ? "bg-[#21c45d]/10" : "bg-hit-pink/10"} flex items-center justify-center ${classItem.status === "Completed" ? "text-[#21c45d]" : "text-hit-pink"}`}>
+                                    <div className={`w-12 h-12 rounded-lg ${classItem.status === "Completed" ? "bg-green-500/20" : "bg-blue-500/20"} flex items-center justify-center ${classItem.status === "Completed" ? "text-green-400" : "text-blue-400"}`}>
                                         <BookOpen className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-woodsmoke">{classItem.subject}</h3>
-                                        <p className="text-sm text-rust">{classItem.className} • {classItem.studentCount} students • {classItem.time}</p>
+                                        <h3 className="font-semibold text-white">{classItem.subject}</h3>
+                                        <p className="text-sm text-slate-400">{classItem.className} • {classItem.studentCount} students • {classItem.time}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3">
@@ -77,7 +77,7 @@ export default function TeacherDashboardPage() {
                                     {classItem.status === "Pending" && (
                                         <button
                                             onClick={() => handleMarkAttendance(classItem.id)}
-                                            className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors bg-pumpkin text-white hover:bg-pumpkin/90 h-9 rounded-md px-3"
+                                            className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 h-9 rounded-md px-3"
                                         >
                                             Mark Attendance
                                         </button>

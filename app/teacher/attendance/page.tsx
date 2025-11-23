@@ -50,7 +50,7 @@ export default function AttendancePage() {
                     <Card key={idx}>
                         <div className="px-6 pt-6 pb-2">
                             <div className="space-y-1.5 flex flex-row items-center justify-between">
-                                <h3 className="text-sm font-medium text-rust">{stat.title}</h3>
+                                <h3 className="text-sm font-medium text-slate-400">{stat.title}</h3>
                                 <div className={`w-10 h-10 rounded-lg ${stat.iconColor} flex items-center justify-center ${stat.iconTextColor}`}>
                                     {stat.icon}
                                 </div>
@@ -79,7 +79,7 @@ export default function AttendancePage() {
                                     setIsClassDropdownOpen(!isClassDropdownOpen);
                                     setIsSubjectDropdownOpen(false);
                                 }}
-                                className="flex h-10 items-center justify-between rounded-md border border-woodsmoke/20 bg-white px-3 py-2 text-sm w-[180px] hover:border-woodsmoke/50 transition-colors focus:outline-none focus:ring-2 focus:ring-pumpkin focus:ring-offset-2"
+                                className="flex h-10 items-center justify-between rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm w-[180px] text-white hover:border-blue-500 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                             >
                                 <span className="line-clamp-1">{selectedClass}</span>
                                 <ChevronDown className={`h-4 w-4 opacity-50 transition-transform ${isClassDropdownOpen ? 'rotate-180' : ''}`} />
@@ -90,7 +90,7 @@ export default function AttendancePage() {
                                         className="fixed inset-0 z-10" 
                                         onClick={() => setIsClassDropdownOpen(false)}
                                     />
-                                    <div className="absolute top-full mt-1 z-20 w-[180px] rounded-md border border-woodsmoke/20 bg-white shadow-lg">
+                                    <div className="absolute top-full mt-1 z-20 w-[180px] rounded-md border border-slate-700 bg-slate-800 shadow-lg">
                                         {classes.map((className) => (
                                             <button
                                                 key={className}
@@ -98,8 +98,8 @@ export default function AttendancePage() {
                                                     setSelectedClass(className);
                                                     setIsClassDropdownOpen(false);
                                                 }}
-                                                className={`w-full text-left px-3 py-2 text-sm hover:bg-athen-gray transition-colors ${
-                                                    selectedClass === className ? 'bg-pampas text-pumpkin font-medium' : ''
+                                                className={`w-full text-left px-3 py-2 text-sm hover:bg-slate-700 transition-colors text-white ${
+                                                    selectedClass === className ? 'bg-blue-600 text-white font-medium' : ''
                                                 }`}
                                             >
                                                 {className}
@@ -118,7 +118,7 @@ export default function AttendancePage() {
                                     setIsSubjectDropdownOpen(!isSubjectDropdownOpen);
                                     setIsClassDropdownOpen(false);
                                 }}
-                                className="flex h-10 items-center justify-between rounded-md border border-woodsmoke/20 bg-white px-3 py-2 text-sm w-[180px] hover:border-woodsmoke/50 transition-colors focus:outline-none focus:ring-2 focus:ring-pumpkin focus:ring-offset-2"
+                                className="flex h-10 items-center justify-between rounded-md border border-slate-700 bg-slate-800 px-3 py-2 text-sm w-[180px] text-white hover:border-blue-500 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                             >
                                 <span className="line-clamp-1">{selectedSubject}</span>
                                 <ChevronDown className={`h-4 w-4 opacity-50 transition-transform ${isSubjectDropdownOpen ? 'rotate-180' : ''}`} />
@@ -129,7 +129,7 @@ export default function AttendancePage() {
                                         className="fixed inset-0 z-10" 
                                         onClick={() => setIsSubjectDropdownOpen(false)}
                                     />
-                                    <div className="absolute top-full mt-1 z-20 w-[180px] rounded-md border border-woodsmoke/20 bg-white shadow-lg">
+                                    <div className="absolute top-full mt-1 z-20 w-[180px] rounded-md border border-slate-700 bg-slate-800 shadow-lg">
                                         {subjects.map((subject) => (
                                             <button
                                                 key={subject}
@@ -137,8 +137,8 @@ export default function AttendancePage() {
                                                     setSelectedSubject(subject);
                                                     setIsSubjectDropdownOpen(false);
                                                 }}
-                                                className={`w-full text-left px-3 py-2 text-sm hover:bg-athen-gray transition-colors ${
-                                                    selectedSubject === subject ? 'bg-pampas text-pumpkin font-medium' : ''
+                                                className={`w-full text-left px-3 py-2 text-sm hover:bg-slate-700 transition-colors text-white ${
+                                                    selectedSubject === subject ? 'bg-blue-600 text-white font-medium' : ''
                                                 }`}
                                             >
                                                 {subject}
@@ -152,7 +152,7 @@ export default function AttendancePage() {
                         {/* Save Button */}
                         <button
                             onClick={handleSaveAttendance}
-                            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-pumpkin text-white hover:bg-pumpkin/90 h-10 px-4 py-2 ml-auto"
+                            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors bg-blue-600 text-white hover:bg-blue-700 h-10 px-4 py-2 ml-auto"
                         >
                             <Save className="w-4 h-4" />
                             Save Attendance
@@ -166,25 +166,25 @@ export default function AttendancePage() {
                         {students.map((student) => (
                             <div
                                 key={student.id}
-                                className="flex items-center justify-between p-4 rounded-lg border border-woodsmoke/20 hover:border-pumpkin/50 transition-colors"
+                                className="flex items-center justify-between p-4 rounded-lg border border-slate-700 bg-slate-700/50 hover:border-blue-500 hover:bg-slate-700 transition-all"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-12 rounded-full bg-pumpkin/10 flex items-center justify-center">
-                                        <span className="text-sm font-semibold text-pumpkin">{student.rollNumber}</span>
+                                    <div className="w-12 h-12 rounded-full bg-blue-500/20 flex items-center justify-center">
+                                        <span className="text-sm font-semibold text-blue-400">{student.rollNumber}</span>
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-woodsmoke">{student.name}</h3>
-                                        <p className="text-sm text-rust">Roll No: {student.rollNumber}</p>
+                                        <h3 className="font-semibold text-white">{student.name}</h3>
+                                        <p className="text-sm text-slate-400">Roll No: {student.rollNumber}</p>
                                     </div>
                                 </div>
                                 <div className="flex items-center gap-3">
                                     <button
                                         type="button"
                                         onClick={() => handleToggleAttendance(student.id)}
-                                        className={`h-4 w-4 shrink-0 rounded-sm border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-pumpkin focus:ring-offset-2 ${
+                                        className={`h-4 w-4 shrink-0 rounded-sm border-2 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2 ${
                                             student.isPresent 
-                                                ? 'bg-pumpkin border-pumpkin' 
-                                                : 'border-woodsmoke/30 bg-white'
+                                                ? 'bg-blue-600 border-blue-600' 
+                                                : 'border-slate-600 bg-slate-800'
                                         }`}
                                     >
                                         {student.isPresent && (
@@ -196,7 +196,7 @@ export default function AttendancePage() {
                                     <label 
                                         htmlFor={`student-${student.id}`}
                                         className={`text-sm font-medium cursor-pointer ${
-                                            student.isPresent ? 'text-[#21c45d]' : 'text-pumpkin'
+                                            student.isPresent ? 'text-green-400' : 'text-blue-400'
                                         }`}
                                     >
                                         {student.isPresent ? 'Present' : 'Absent'}

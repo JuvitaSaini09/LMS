@@ -8,12 +8,12 @@ import Link from "next/link";
 export default function DashboardPage() {
 
     const getGradeColor = (grade: string) => {
-        if (grade === "A+") return "text-[#21c45d]";
-        if (grade === "A") return "text-[#21c45d]";
-        if (grade === "B+") return "text-pumpkin";
-        if (grade === "B") return "text-pumpkin";
-        if (grade === "C") return "text-silver-sand";
-        return "text-silver-sand";
+        if (grade === "A+") return "text-green-400";
+        if (grade === "A") return "text-green-400";
+        if (grade === "B+") return "text-blue-400";
+        if (grade === "B") return "text-blue-400";
+        if (grade === "C") return "text-yellow-400";
+        return "text-slate-400";
     }
 
     return (
@@ -39,9 +39,9 @@ export default function DashboardPage() {
                     <div className="p-6 pt-0 space-y-4">
                         {
                             recentGrades.map((grade, idx) => (
-                                <div key={idx} className="flex items-center justify-between p-4 rounded-lg border-[0.5px] border-woodsmoke/20 hover:border-woodsmoke/50 transition-color">
+                                <div key={idx} className="flex items-center justify-between p-4 rounded-lg border border-slate-700 bg-slate-700/50 hover:border-blue-500 hover:bg-slate-700 transition-all">
                                     <div>
-                                        <h3 className="font-semibold">{grade.subject}</h3>
+                                        <h3 className="font-semibold text-white">{grade.subject}</h3>
                                         <Subtitle title={`Score: ${grade.marks}/${grade.totalMarks}`} />
                                     </div>
 
@@ -62,8 +62,8 @@ export default function DashboardPage() {
                         {
                             quickActions.map((action, idx) => (
                                 <Card key={idx}>
-                                      <Link key={idx} href={action.link} className="bg-athen-gray">
-                                    <div className="border-[0.5px] border-woodsmoke/5 hover:bg-pumpkin hover:text-white rounded-md px-4 py-2 h-24 flex flex-col items-center justify-center gap-2 transition-[color,background-color,border-color,text-decoration-color,fill,stroke] ease-in-out duration-150">
+                                      <Link key={idx} href={action.link}>
+                                    <div className="border border-slate-700 bg-slate-700/50 hover:bg-blue-600 hover:border-blue-500 hover:text-white rounded-md px-4 py-2 h-24 flex flex-col items-center justify-center gap-2 transition-all ease-in-out duration-150 text-slate-300">
                                     
                                     {action.icon}
                                     <span className="text-sm">{action.title}</span>

@@ -36,7 +36,7 @@ export default function MarksAnalysisPage() {
                     <Card key={idx} style={{ animationDelay: `${idx * 100}ms` } as React.CSSProperties}>
                         <div className="px-6 pt-6 pb-2">
                             <div className="space-y-1.5 flex flex-row items-center justify-between">
-                                <h3 className="text-sm font-medium text-rust">{stat.title}</h3>
+                                <h3 className="text-sm font-medium text-slate-400">{stat.title}</h3>
                                 <div className={`w-10 h-10 rounded-lg ${stat.iconColor} flex items-center justify-center ${stat.iconTextColor}`}>
                                     {stat.icon}
                                 </div>
@@ -44,7 +44,7 @@ export default function MarksAnalysisPage() {
                         </div>
                         <div className="p-6 pt-0">
                             <div className={`text-3xl font-bold ${stat.iconTextColor}`}>{stat.value}</div>
-                            <p className="text-xs text-rust mt-1">{stat.subtitle}</p>
+                            <p className="text-xs text-slate-400 mt-1">{stat.subtitle}</p>
                         </div>
                     </Card>
                 ))}
@@ -59,58 +59,59 @@ export default function MarksAnalysisPage() {
                 <div className="p-6 pt-0">
                     <ResponsiveContainer width="100%" height={350}>
                         <LineChart data={performanceTrendData}>
-                            <CartesianGrid strokeDasharray="3 3" stroke="rgba(17, 20, 24, 0.1)" />
+                            <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                             <XAxis 
                                 dataKey="term" 
-                                stroke="#626284"
-                                tick={{ fill: "#626284" }}
+                                stroke="#9ca3af"
+                                tick={{ fill: "#9ca3af" }}
                             />
                             <YAxis 
-                                stroke="#626284"
-                                tick={{ fill: "#626284" }}
+                                stroke="#9ca3af"
+                                tick={{ fill: "#9ca3af" }}
                             />
                             <Tooltip 
                                 contentStyle={{ 
-                                    backgroundColor: "white", 
-                                    border: "1px solid rgba(17, 20, 24, 0.2)",
+                                    backgroundColor: "#1f2937", 
+                                    border: "1px solid #374151",
                                     borderRadius: "8px"
                                 }}
+                                labelStyle={{ color: "#fff" }}
                             />
                             <Legend />
                             <Line 
                                 type="monotone" 
                                 dataKey="Math" 
-                                stroke="#ff6e13" 
+                                stroke="#3b82f6" 
                                 strokeWidth={2}
-                                dot={{ r: 4, fill: "white", strokeWidth: 2 }}
+                                dot={{ r: 4, fill: "#3b82f6", strokeWidth: 2 }}
                             />
                             <Line 
                                 type="monotone" 
                                 dataKey="Physics" 
-                                stroke="#ffa972" 
+                                stroke="#8b5cf6" 
                                 strokeWidth={2}
-                                dot={{ r: 4, fill: "white", strokeWidth: 2 }}
+                                dot={{ r: 4, fill: "#8b5cf6", strokeWidth: 2 }}
                             />
                             <Line 
                                 type="monotone" 
                                 dataKey="Chemistry" 
-                                stroke="#626284" 
+                                stroke="#ec4899" 
                                 strokeWidth={2}
-                                dot={{ r: 4, fill: "white", strokeWidth: 2 }}
+                                dot={{ r: 4, fill: "#ec4899", strokeWidth: 2 }}
                             />
                             <Line 
                                 type="monotone" 
                                 dataKey="Biology" 
-                                stroke="#26a6b3" 
+                                stroke="#10b981" 
                                 strokeWidth={2}
-                                dot={{ r: 4, fill: "white", strokeWidth: 2 }}
+                                dot={{ r: 4, fill: "#10b981", strokeWidth: 2 }}
                             />
                             <Line 
                                 type="monotone" 
                                 dataKey="English" 
-                                stroke="#606164" 
+                                stroke="#f59e0b" 
                                 strokeWidth={2}
-                                dot={{ r: 4, fill: "white", strokeWidth: 2 }}
+                                dot={{ r: 4, fill: "#f59e0b", strokeWidth: 2 }}
                             />
                         </LineChart>
                     </ResponsiveContainer>
@@ -128,41 +129,39 @@ export default function MarksAnalysisPage() {
                     <div className="p-6 pt-0">
                         <ResponsiveContainer width="100%" height={300}>
                             <BarChart data={subjectWiseData}>
-                                <CartesianGrid strokeDasharray="3 3" stroke="rgba(17, 20, 24, 0.1)" />
+                                <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                                 <XAxis 
                                     dataKey="subject" 
                                     angle={-45}
                                     textAnchor="end"
                                     height={80}
-                                    stroke="#626284"
-                                    tick={{ fill: "#626284", fontSize: 12 }}
+                                    stroke="#9ca3af"
+                                    tick={{ fill: "#9ca3af", fontSize: 12 }}
                                 />
                                 <YAxis 
-                                    stroke="#626284"
-                                    tick={{ fill: "#626284" }}
+                                    stroke="#9ca3af"
+                                    tick={{ fill: "#9ca3af" }}
                                 />
                                 <Tooltip 
                                     contentStyle={{ 
-                                        backgroundColor: "white", 
-                                        border: "1px solid rgba(17, 20, 24, 0.2)",
+                                        backgroundColor: "#1f2937", 
+                                        border: "1px solid #374151",
                                         borderRadius: "8px"
                                     }}
+                                    labelStyle={{ color: "#fff" }}
                                 />
                                 <Legend />
                                 <Bar 
                                     dataKey="yourScore" 
-                                    fill="#ff6e13" 
+                                    fill="#3b82f6" 
                                     radius={[8, 8, 0, 0]}
                                     name="Your Score"
                                 />
                                 <Bar 
                                     dataKey="classAverage" 
-                                    fill="#c5c6c7" 
+                                    fill="#9ca3af" 
                                     radius={[8, 8, 0, 0]}
                                     name="Class Average"
-                                    activeBar={{ 
-                                        fill: "#ffffff", // Darker pumpkin on hover
-                                    }}
                                 />
                             </BarChart>
                         </ResponsiveContainer>

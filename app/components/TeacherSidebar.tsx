@@ -60,28 +60,28 @@ export default function TeacherSidebar({ isOpen = false, onClose }: TeacherSideb
             {/* Mobile Overlay */}
             {isOpen && (
                 <div 
-                    className="fixed inset-0 bg-black/50 z-40 md:hidden"
+                    className="fixed inset-0 bg-black/70 z-40 md:hidden"
                     onClick={onClose}
                 />
             )}
             <aside className={`
                 fixed md:fixed inset-y-0 left-0 z-50
-                h-screen w-64 flex flex-col justify-between bg-white
+                h-screen w-64 flex flex-col justify-between bg-slate-800 border-r border-slate-700
                 transform transition-transform duration-300 ease-in-out
                 ${isOpen ? 'translate-x-0' : '-translate-x-full md:translate-x-0'}
             `}>
                 <div className="flex items-center gap-3 p-6">
-                    <div className="bg-pumpkin h-10 w-10 flex items-center justify-center rounded-xl">
+                    <div className="bg-blue-600 h-10 w-10 flex items-center justify-center rounded-xl">
                         <span>{logoIconSvg}</span>
                     </div>
                     <div className="flex-1">
-                        <h1 className="font-bold text-lg">EduFlow MLS</h1>
-                        <p className="text-rust text-[13px] capitalize">Teacher Portal</p>
+                        <h1 className="font-bold text-lg text-white">EduFlow MLS</h1>
+                        <p className="text-slate-400 text-[13px] capitalize">Teacher Portal</p>
                     </div>
                     {/* Close button for mobile */}
                     <button 
                         onClick={onClose}
-                        className="md:hidden p-1 hover:bg-gray-100 rounded"
+                        className="md:hidden p-1 hover:bg-slate-700 rounded text-slate-400 hover:text-white"
                     >
                         <X size={20} />
                     </button>
@@ -91,7 +91,7 @@ export default function TeacherSidebar({ isOpen = false, onClose }: TeacherSideb
                         {navItems.map((item) => {
                             const isActive = pathname === item.href;
                             return (
-                                <li key={item.href} className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 ease-in-out hover:bg-gray-200 ${isActive ? 'hover:bg-woodsmoke/90 bg-woodsmoke text-white' : ''}`}>
+                                <li key={item.href} className={`px-4 py-3 rounded-lg text-sm font-medium transition-all duration-150 ease-in-out ${isActive ? 'bg-blue-600 text-white' : 'text-slate-300 hover:bg-slate-700 hover:text-white'}`}>
                                     <Link 
                                         href={item.href} 
                                         className="flex items-center gap-3"
@@ -113,7 +113,7 @@ export default function TeacherSidebar({ isOpen = false, onClose }: TeacherSideb
                         onClick={() => {
                             window.location.href = '/';
                         }}
-                        className="h-10 w-full px-4 py-2 flex items-center gap-4 cursor-pointer hover:bg-pumpkin rounded-lg transition-colors duration-150 ease-in-out hover:text-white"
+                        className="h-10 w-full px-4 py-2 flex items-center gap-4 cursor-pointer text-slate-300 hover:bg-slate-700 rounded-lg transition-colors duration-150 ease-in-out hover:text-white"
                     >
                         <span><LogOut size={16} strokeWidth={2} /></span>
                         <span>Logout</span>

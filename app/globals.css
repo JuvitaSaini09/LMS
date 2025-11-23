@@ -4,66 +4,48 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Plus Jakarta Sans", "Plus Jakarta Sans Placeholder", sans-serif;
+  background-color: #0f172a; /* slate-900 */
+  color: #f1f5f9; /* slate-100 */
 }
+
 :root {
-  /* Color Palette - CSS Custom Properties */
-  --color-pumpkin: #ff6e13;  /* Pumpkin */
-  --color-woodsmoke: #111418; /* woodsmoke */
+  /* Modern Color Palette - CSS Custom Properties */
+  --color-pumpkin: #3b82f6;  /* Modern Blue (replacing pumpkin) */
+  --color-woodsmoke: #1e293b; /* slate-800 */
   --color-pampas: #f5f1ef; /* pampas */
-  --color-hit-pink: #ffa972; /* hit-pink */
-  --color-mid-gray: #606164; /* mid-gray */
+  --color-hit-pink: #8b5cf6; /* Modern Purple */
+  --color-mid-gray: #64748b; /* slate-500 */
   --color-romantic: #ffd8c0; /* romantic */
-  --color-silver-sand: #c5c6c7; /* silver-sand */
-  --color-outer-space: #313334; /* outer-space */
-  --color-athen-gray:#f6f7f9; /* athen-gray */
-  --color-rust:#626284;
+  --color-silver-sand: #94a3b8; /* slate-400 */
+  --color-outer-space: #334155; /* slate-700 */
+  --color-athen-gray: #1e293b; /* slate-800 (dark background) */
+  --color-rust: #94a3b8; /* slate-400 */
 
   /* RGB versions for transparency support */
-  --color-pumpkin-rgb: 255, 110, 19;
-  --color-woodsmoke-rgb: 17, 20, 24;
+  --color-pumpkin-rgb: 59, 130, 246;
+  --color-woodsmoke-rgb: 30, 41, 59;
   --color-pampas-rgb: 245, 241, 239;
-  --color-hit-pink-rgb: 255, 169, 114;
-  --color-mid-gray-rgb: 96, 97, 100;
+  --color-hit-pink-rgb: 139, 92, 246;
+  --color-mid-gray-rgb: 100, 116, 139;
   --color-romantic-rgb: 255, 216, 192;
-  --color-silver-sand-rgb: 197, 198, 199;
-  --color-outer-space-rgb: 49, 51, 52;
-  --color-athen-gray-rgb: 246, 247, 249;
-  --color-rust-rgb: 98, 98, 132;
+  --color-silver-sand-rgb: 148, 163, 184;
+  --color-outer-space-rgb: 51, 65, 85;
+  --color-athen-gray-rgb: 30, 41, 59;
+  --color-rust-rgb: 148, 163, 184;
 }
-
 
 @theme {
-  --color-pumpkin: #ff6e13;
-  --color-woodsmoke: #111418;
+  --color-pumpkin: #3b82f6;
+  --color-woodsmoke: #1e293b;
   --color-pampas: #f5f1ef;
-  --color-hit-pink: #ffa972;
-  --color-mid-gray: #606164;
+  --color-hit-pink: #8b5cf6;
+  --color-mid-gray: #64748b;
   --color-romantic: #ffd8c0;
-  --color-silver-sand: #c5c6c7;
-  --color-outer-space: #313334;
-  --color-rust: #626284;
-  --color-athen-gray: #f6f7f9;
+  --color-silver-sand: #94a3b8;
+  --color-outer-space: #334155;
+  --color-rust: #94a3b8;
+  --color-athen-gray: #1e293b;
 }
-
-
-
-  /* --color-pumpkin: #ff6e13; 
-  --color-woodsmoke: #111418; 
-  --color-pampas: #f5f1ef; 
-  --color-hit-pink: #ffa972; 
-  --color-mid-gray: #606164; 
-  --color-romantic: #ffd8c0; 
-  --color-silver-sand: #c5c6c7; 
-  --color-outer-space: #313334; 
-
-  --color-pumpkin-rgb: 255, 110, 19;
-  --color-woodsmoke-rgb: 17, 20, 24;
-  --color-pampas-rgb: 245, 241, 239;
-  --color-hit-pink-rgb: 255, 169, 114;
-  --color-mid-gray-rgb: 96, 97, 100;
-  --color-romantic-rgb: 255, 216, 192;
-  --color-silver-sand-rgb: 197, 198, 199;
-  --color-outer-space-rgb: 49, 51, 52; */
 
 
 
