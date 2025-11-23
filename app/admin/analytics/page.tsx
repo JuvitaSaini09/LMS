@@ -1,15 +1,15 @@
 import Title from "@/app/components/Atoms/Title";
 import Subtitle from "@/app/components/Atoms/Subtitle";
 
-export default function AdminDashboardPage() {
+export default function AnalyticsPage() {
     return (
         <div className="p-8 space-y-8 animate-fade-in">
             <div>
-                <Title title="Dashboard" />
-                <Subtitle title="Admin dashboard content" />
+                <Title title="Analytics" />
+                <Subtitle title="Analytics content" />
             </div>
             <div>
-                <p>Dashboard content</p>
+                <p>Analytics content</p>
             </div>
         </div>
     );
