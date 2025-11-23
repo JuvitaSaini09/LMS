@@ -4,7 +4,7 @@ import { useState } from "react";
 import Title from "@/app/components/Atoms/Title";
 import Subtitle from "@/app/components/Atoms/Subtitle";
 import Card from "@/app/components/Atoms/Card";
-import { ChevronDown, Mail, FileText, X } from "lucide-react";
+import { ChevronDown, Mail, FileText } from "lucide-react";
 import { classes, studentsData, StudentFee } from "./data";
 import ReceiptModal from "./ReceiptModal";
 
@@ -35,6 +35,82 @@ export default function StudentsPage() {
     };
 
     const handleReceipt = (student: StudentFee) => {
+        if (student.status !== "PAID") {
+            alert("Receipt can only be generated for paid fees");
+            return;
+        }
+
+        const receiptContent = `
+    <html>
+      <head>
+        <title>Fee Receipt - ${student.name}</title>
+        <style>
+          body { font-family: Arial, sans-serif; margin: 20px; }
+          .header { text-align: center; border-bottom: 2px solid #333; padding-bottom: 20px; }
+          .content { margin: 30px 0; }
+          .info { margin: 15px 0; }
+          .footer { text-align: center; margin-top: 40px; border-top: 1px solid #999; padding-top: 20px; }
+          table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+          th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+          th { background-color: #f0f0f0; }
+          .amount { font-weight: bold; font-size: 18px; }
+        </style>
+      </head>
+      <body>
+        <div class="header">
+          <h1>EduFLow Institution</h1>
+          <p>Official Fee Receipt</p>
+        </div>
+        
+        <div class="content">
+          <div class="info">
+            <strong>Receipt No:</strong> ${student.receiptNo || `RCP-${student.id}-${new Date().getFullYear()}`}<br/>
+            <strong>Date:</strong> ${new Date().toLocaleDateString()}<br/>
+          </div>
+          <h3>Student Details</h3>
+          <div class="info">
+            <strong>Name:</strong> ${student.name}<br/>
+            <strong>Class:</strong> ${student.className}<br/>
+            <strong>Payment Date:</strong> ${student.paymentDate || 'N/A'}<br/>
+          </div>
+          <table>
+            <tr>
+              <th>Description</th>
+              <th>Amount</th>
+            </tr>
+            <tr>
+              <td>Tuition Fees (${formatDate(student.dueDate)})</td>
+              <td class="amount">₹${student.amount.toLocaleString('en-IN')}</td>
+            </tr>
+            <tr>
+              <th>Total Amount Paid</th>
+              <th class="amount">₹${student.amount.toLocaleString('en-IN')}</th>
+            </tr>
+          </table>
+          <div class="info">
+            <strong>Payment Method:</strong> ${student.paymentMethod || 'Bank Transfer'}<br/>
+            <strong>Status:</strong> <span style="color: green; font-weight: bold;">PAID</span>
+          </div>
+        </div>
+        <div class="footer">
+          <p>Thank you for your payment!</p>
+          <p>For queries, contact: fees@eduflow.com</p>
+          <p>_________________</p>
+          <p>Authorized Signatory</p>
+        </div>
+      </body>
+    </html>
+    `;
+
+        const printWindow = window.open("", "", "height=900,width=900");
+        if (printWindow) {
+            printWindow.document.write(receiptContent);
+            printWindow.document.close();
+            printWindow.print();
+        }
+    };
+
+    const handleEmail = (student: StudentFee) => {
         setSelectedStudent(student);
         setIsModalOpen(true);
     };
@@ -126,13 +202,22 @@ export default function StudentsPage() {
                                             </p>
                                         </div>
                                         {student.status === "PAID" ? (
-                                            <button
-                                                onClick={() => handleReceipt(student)}
-                                                className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors bg-pumpkin text-white hover:bg-pumpkin/90 h-9 rounded-md px-4"
-                                            >
-                                                <FileText className="w-4 h-4" />
-                                                Receipt
-                                            </button>
+                                            <div className="flex gap-2">
+                                                <button
+                                                    onClick={() => handleReceipt(student)}
+                                                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors bg-pumpkin text-white hover:bg-pumpkin/90 h-9 rounded-md px-4"
+                                                >
+                                                    <FileText className="w-4 h-4" />
+                                                    Receipt
+                                                </button>
+                                                <button
+                                                    onClick={() => handleEmail(student)}
+                                                    className="inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium transition-colors border border-woodsmoke/20 bg-white hover:bg-athen-gray text-rust h-9 rounded-md px-4"
+                                                >
+                                                    <Mail className="w-4 h-4" />
+                                                    Email
+                                                </button>
+                                            </div>
                                         ) : (
                                             <button
                                                 onClick={() => handleSendReminder(student)}

@@ -27,9 +27,9 @@ Receipt No: ${student.receiptNo || 'N/A'}
 If you have any queries regarding your fee payment, please contact the accounts office.
 
 Best regards,
-EduLearn Institution
+EduFlow Institution
 Accounts Department
-fees@edulearn.com`;
+fees@eduflow.com`;
 
     const handleCopy = () => {
         navigator.clipboard.writeText(emailTemplate);
